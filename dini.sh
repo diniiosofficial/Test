@@ -15,6 +15,7 @@ TUNNEL_ID=$(cat ~/.cloudflared/$TUNNEL_NAME.json | jq -r '.TunnelID')
 
 # Create a configuration file for the tunnel
 mkdir -p ~/.cloudflared
+cp -R /home/dini/.cloudflared/$TUNNEL_NAME.json : /root/.cloudflared/$TUNNEL_NAME.json
 cat <<EOF > ~/.cloudflared/config.yml
 tunnel: $TUNNEL_ID
 credentials-file: /root/.cloudflared/$TUNNEL_NAME.json
